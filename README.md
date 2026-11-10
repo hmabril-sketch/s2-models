@@ -40,13 +40,15 @@ able to separate graphs that defeat Weisfeiler–Leman tests.
 ```bash
 git clone https://github.com/hmabril-sketch/s2-models.git
 cd s2-models
-pip install -e ".[all]"      # numpy, networkx, cypari2, matplotlib, pytest
+pip install --only-binary=cypari2 -e ".[all]"   # numpy, networkx, cypari2, matplotlib, pytest
 ```
 
 The only hard dependencies are `numpy` and `networkx`. `cypari2` (PARI/GP)
 provides a fast exact Smith Normal Form and is needed for the experiments on
 large graphs (the strongly regular graphs require the SNF of 315 × 315 integer
-matrices); without it a pure-Python SNF is used.
+matrices); without it a pure-Python SNF is used. `--only-binary=cypari2` makes
+pip use a prebuilt wheel (Linux and macOS, Python ≥ 3.9) instead of trying
+to compile it against a system PARI installation.
 
 ## Quick start
 
