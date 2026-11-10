@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the article below."
+title: "s2-models: topological scale framework for hypergraphs"
+type: software
+license: MIT
+preferred-citation:
+  type: article
+  title: "Topological scale framework for hypergraphs"
+  authors:
+    - family-names: "Molina-Abril"
+      given-names: "H."
+    - family-names: "Morón-Fernández"
+      given-names: "M.J."
+    - family-names: "Benito-Marimón"
+      given-names: "M."
+    - family-names: "Díaz-del-Río"
+      given-names: "F."
+    - family-names: "Real"
+      given-names: "P."
+  journal: "Applied Mathematics and Computation"
+  volume: 485
+  start: 128989
+  year: 2025
+  doi: "10.1016/j.amc.2024.128989"

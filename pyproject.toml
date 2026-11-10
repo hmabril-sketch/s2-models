@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "s2models"
+version = "0.1.0"
+description = "Topological scale framework (s²-models) for hypergraph analysis and isomorphism testing"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.22",
+    "networkx>=2.8",
+]
+keywords = ["hypergraph", "topological data analysis", "homology", "Smith normal form",
+            "graph isomorphism", "scale-space", "chain complex"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+
+[project.optional-dependencies]
+# PARI/GP Smith normal form: needed for the experiments on large graphs
+fast = ["cypari2>=2.1"]
+plot = ["matplotlib>=3.5"]
+test = ["pytest>=7"]
+all = ["cypari2>=2.1", "matplotlib>=3.5", "pytest>=7"]
+
+[project.urls]
+Paper = "https://doi.org/10.1016/j.amc.2024.128989"
+
+[tool.setuptools]
+packages = ["s2models"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

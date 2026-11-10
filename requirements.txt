@@ -1,0 +1,5 @@
+numpy>=1.22
+networkx>=2.8
+cypari2>=2.1
+matplotlib>=3.5
+pytest>=7
