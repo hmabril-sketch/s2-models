@@ -86,15 +86,42 @@ graph, computes the five metrics at every scale and reports, for each
 dataset, the percentage of graphs whose certificate is shared with no other
 graph. Features are cached in `results/cache/`; `--tables-only` regenerates
 the tables from the cache. On a 2-core machine the cubic and Cayley families
-take under a minute; the strongly regular family takes about 30 minutes
-(dominated by `sr351899` and `sr361446`).
+take under a minute; the strongly regular family takes about 35 minutes,
+almost all of it in `sr351899` (227 graphs, 315 × 315 SNFs).
 
 Outputs: `results/results_Z2_k3.md` (tables with the paper's values next to
 ours), `results/per_metric_Z2_k3.csv` and `results/per_level_Z2_k3.csv`.
 
 ## Results
 
-RESULTS_PLACEHOLDER
+As in the paper, the truncated boundary-scale model S²₃ distinguishes **every
+one of the 1,393 graphs** of the 33 datasets (the "Disting." column is 100 %
+everywhere). The individual percentages agree with the paper in 192 of the
+198 cells of Tables 3–5 and in 88 of the 90 cells of Table 2:
+
+| Family | Datasets | Graphs | Tables 3–5 cells equal to the paper | Table 2 cells equal to the paper |
+|---|---|---|---|---|
+| Connected cubic graphs (Table 3) | 5 | 620 | 28 / 30 | 13 / 15 |
+| Minimal Cayley graphs (Table 5) | 20 | 266 | 116 / 120 | 57 / 57 |
+| Strongly regular graphs (Table 4) | 8 | 507 | **48 / 48** | **18 / 18** |
+
+The cells that differ:
+
+| Table | Dataset | Metric | Paper | This code | Note |
+|---|---|---|---|---|---|
+| 3 | cubic10 | ω_d | 89.5 | 78.9 | 17 vs 15 of 19 graphs |
+| 3 | cubic14 | ω_d | 97.6 | 82.3 | |
+| 5 | cayley32-80 | ω_i, ω_ρ+ | 74.1 | 71.4 | 74.1 % is not attainable with 14 graphs (10/14 = 71.4 %, 11/14 = 78.6 %) |
+| 5 | cayley60-90 | ω_ρ- | 90 | 100 | the text of §6.1 mentions one pair with equal ω_ρ- here; we find none |
+| 5 | cayley60-120 | ω_i | 63.2 | 73.5 | 43 vs 50 of 68 graphs |
+| 2 | cubic12, s = 2 | all | 80.0 | 61.2 | |
+| 2 | cubic14, s = 2 | all | 40.1 | 21.6 | |
+
+Every other cell, including all of Table 4 (where ω_ρ- alone separates
+every strongly regular graph, e.g. the 3-WL-equivalent Shrikhande and 4×4 rook's
+graphs of sr16622), is reproduced exactly. The complete tables, with the
+paper's value printed next to each differing cell, are in
+[`results/results_Z2_k3.md`](results/results_Z2_k3.md).
 
 ## Implementation notes
 
